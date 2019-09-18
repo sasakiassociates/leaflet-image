@@ -29,7 +29,7 @@ module.exports = function leafletImage(map, callback) {
     // layers are drawn in the same order as they are composed in the DOM:
     // tiles, paths, and then markers
     map.eachLayer(drawTileLayer);
-    map.eachLayer(drawEsriDynamicLayer);
+    //map.eachLayer(drawEsriDynamicLayer);
     
     if (map._pathRoot) {
         layerQueue.defer(handlePathRoot, map._pathRoot);
@@ -37,7 +37,7 @@ module.exports = function leafletImage(map, callback) {
         var firstCanvas = map._panes.overlayPane.getElementsByTagName('canvas').item(0);
         if (firstCanvas) { layerQueue.defer(handlePathRoot, firstCanvas); }
     }
-    map.eachLayer(drawMarkerLayer);
+    //map.eachLayer(drawMarkerLayer);
     layerQueue.awaitAll(layersDone);
 
     function drawTileLayer(l) {
